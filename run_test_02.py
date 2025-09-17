@@ -4,8 +4,8 @@
 Tests for Task 2
 """
 
-from tasks import task_02_cli
+from tasks import test_draw_pythagoras_tree
 
 
 if __name__ == "__main__":
-    task_02_cli()
+    test_draw_pythagoras_tree()
