@@ -9,6 +9,7 @@ from typing import Optional, Any, Union
 
 import networkx as nx
 import matplotlib.pyplot as plt
+from fontTools.unicodedata import block
 
 
 class Node:
@@ -59,11 +60,13 @@ def edges_add(
     return graph
 
 
-def tree_draw(root: Node, title: Optional[str] = None) -> None:
+def tree_draw(root: Node, title: Optional[str] = None, last: bool = True) -> None:
     """
     Tree visualization.
 
     :param root: Root node of the tree (Node, mandatory)
+    :param title: Figure/chart title (String, optional)
+    :param last: Flag of whether it is the last figure/chart in the set or not (Boolean, optional)
     """
     tree = nx.DiGraph()
     pos = {root.key: (0, 0)}
@@ -87,7 +90,7 @@ def tree_draw(root: Node, title: Optional[str] = None) -> None:
     )
     if title:
         ax.set_title(title, fontweight="bold", fontsize="20")
-    plt.show()
+    plt.show(block=last)
 
 
 def heap_to_tree(heap: list[Any], i: int = 0) -> Optional[Node]:

@@ -181,7 +181,7 @@ def generate_colors(colors_number: int = 15) -> list[str]:
 def cli() -> None:
     try:
         parser = argparse.ArgumentParser(description="Builds and visualizes a tree", epilog="Good bye!")
-        parser.add_argument("-n", "--nodes", type=int, default=15, help="Number of nodes (default 15)")
+        parser.add_argument("-n", "--nodes", type=int, default=7, help="Number of nodes (default 7)")
 
         args = parser.parse_args()
 
@@ -190,19 +190,19 @@ def cli() -> None:
 
         # Make BFS and visualize the result
         print("BFS path:", " -> ".join(str(n) for n in bfs(root, colors=colors)))
-        tree_draw(root, title="BFS Traversal")
+        tree_draw(root, title="BFS Traversal", last=False)
 
         # Make DFS preorder and visualize the result
         print("DFS preorder path:", " -> ".join(str(n) for n in dfs_preorder(root, colors=colors)))
-        tree_draw(root, title="DFS PREORDER Traversal")
+        tree_draw(root, title="DFS PREORDER Traversal", last=False)
 
         # Make DFS inorder and visualize the result
         print("DFS inorder path:", " -> ".join(str(n) for n in dfs_inorder(root, colors=colors)))
-        tree_draw(root, title="DFS INORDER Traversal")
+        tree_draw(root, title="DFS INORDER Traversal", last=False)
 
         # Make DFS postorder and visualize the result
         print("DFS postorder path:", " -> ".join(str(n) for n in dfs_postorder(root, colors=colors)))
-        tree_draw(root, title="DFS POSTORDER Traversal")
+        tree_draw(root, title="DFS POSTORDER Traversal", last=True)
 
     except Exception as e:
         print(e)
