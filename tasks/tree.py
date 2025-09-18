@@ -4,12 +4,12 @@
 Knuth-Morris-Pratt algorithm implementation
 """
 
+import heapq
 import uuid
 from typing import Optional, Any, Union
 
 import networkx as nx
 import matplotlib.pyplot as plt
-from fontTools.unicodedata import block
 
 
 class Node:
@@ -103,6 +103,8 @@ def heap_to_tree(heap: list[Any], i: int = 0) -> Optional[Node]:
     """
     if i >= len(heap):
         return None
+
+    heapq.heapify(heap)
 
     root = Node(heap[i])
     root.left = heap_to_tree(heap, 2 * i + 1)
