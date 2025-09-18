@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-HomeWork Task 3
+HomeWork Task 4
 """
 
 import argparse
@@ -10,6 +10,12 @@ from .tree import tree_draw, heap_to_tree
 
 
 def heap_visualization(nodes_number: int = 15) -> None:
+    """
+    Creation and visualization of a binary tree from a min-heap with the specified number of vertices.
+
+    :param nodes_number: Number of vertices (Integer, optional)
+    """
+
     # Min-heap as an array
     heap_array = [2 * n + 1 for n in range(nodes_number)]
 

@@ -13,12 +13,15 @@ import matplotlib.pyplot as plt
 
 class Node:
 
-    def __init__(self, value: Any, color: str = "skyblue"):
+    def __init__(self, value: Any, color: str = "#1C548C"):
         self.left = None
         self.right = None
         self.value = value
         self.color = color
         self.key = uuid.uuid4()
+
+    def __repr__(self) -> str:
+        return f"Node({self.value!r})"
 
 
 def edges_add(
@@ -56,7 +59,7 @@ def edges_add(
     return graph
 
 
-def tree_draw(root: Node) -> None:
+def tree_draw(root: Node, title: Optional[str] = None) -> None:
     """
     Tree visualization.
 
@@ -70,7 +73,20 @@ def tree_draw(root: Node) -> None:
     labels = nx.get_node_attributes(tree, "label")
 
     plt.figure(figsize=(15, 8))
-    nx.draw(tree, pos=pos, labels=labels, arrows=False, node_size=2500, node_color=colors)
+    ax = plt.gca()
+    nx.draw(
+        tree,
+        ax=ax,
+        pos=pos,
+        labels=labels,
+        arrows=False,
+        node_size=2500,
+        font_color='white',
+        font_weight='bold',
+        node_color=colors,
+    )
+    if title:
+        ax.set_title(title, fontweight="bold", fontsize="20")
     plt.show()
 
 
@@ -81,7 +97,6 @@ def heap_to_tree(heap: list[Any], i: int = 0) -> Optional[Node]:
     :param heap: Heap list (List of any values)
     :param i: Index of the current node (Integer, optional)
     :return: Root of the tree or None, if the node is absent (Node, optional)
-    :return:
     """
     if i >= len(heap):
         return None
