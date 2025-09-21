@@ -9,6 +9,7 @@ from tasks.task_02 import cli as test_draw_pythagoras_tree
 from tasks.task_03 import test_dijkstra_heap
 from tasks.task_04 import cli as test_heap_visualization
 from tasks.task_05 import cli as test_tree_bfs_dfs_visualization
+from tasks.task_06 import cli as test_algorithms
 from tasks.task_07 import cli as test_monte_carlo_dices
 
 __all__ = [
@@ -17,5 +18,6 @@ __all__ = [
     'test_dijkstra_heap',
     'test_heap_visualization',
     'test_tree_bfs_dfs_visualization',
+    'test_algorithms',
     'test_monte_carlo_dices',
 ]

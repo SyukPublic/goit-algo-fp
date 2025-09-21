@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Tests for Task 3
+Tests for Task 7
 """
 
 from tasks import test_monte_carlo_dices
